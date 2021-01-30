@@ -149,7 +149,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2128269831}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1610847237
 PrefabInstance:
@@ -163,6 +163,12 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1740422666}
+    - target: {fileID: 2190040358924668874, guid: 705b845e74bd3844486ee28df0b5ab62,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 3256465577323734202, guid: ded8ea33341209b47af0796568d798b2,
+        type: 3}
     - target: {fileID: 2190040358924668876, guid: 705b845e74bd3844486ee28df0b5ab62,
         type: 3}
       propertyPath: m_RootOrder
@@ -520,7 +526,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c812a3989027e414882558f33836039e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 20
   hitEffect: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!1 &2128269826 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2190040358924668878, guid: 705b845e74bd3844486ee28df0b5ab62,

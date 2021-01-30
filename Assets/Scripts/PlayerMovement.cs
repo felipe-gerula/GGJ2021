@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 lookDir = mousePos - player.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         player.rotation = angle;
+        cam.transform.position = new Vector3(player.position.x, player.position.y, cam.transform.position.z);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
