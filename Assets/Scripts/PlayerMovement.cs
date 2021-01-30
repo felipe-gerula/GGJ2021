@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     //private int collectedParts = 0;
     //public int health = 100;
     public Camera cam;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        animator.SetFloat("Speed", movement.sqrMagnitude);
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
          
