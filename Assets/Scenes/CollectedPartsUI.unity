@@ -390,7 +390,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 1634095897}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -544,12 +544,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e74f6553e20db7a4486e65289015cb82, type: 3}
---- !u!20 &1634095897 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 8315475094194336065, guid: e74f6553e20db7a4486e65289015cb82,
-    type: 3}
-  m_PrefabInstance: {fileID: 1634095896}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8452092941614926770
 PrefabInstance:
   m_ObjectHideFlags: 0
