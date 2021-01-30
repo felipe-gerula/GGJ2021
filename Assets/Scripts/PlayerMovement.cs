@@ -11,9 +11,17 @@ public class PlayerMovement : MonoBehaviour
     Vector2 mousePos;
     public int collectedParts = 0;
     //private int collectedParts = 0;
-    //public int health = 100;
+    public int health = 5;
     public Camera cam;
     public Animator animator;
+    public float alphaLevel = 0f;
+    //private SpriteRenderer _spriteRenderer;
+
+
+
+    protected void Awake() {
+        //_spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +58,29 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             collectedParts++;
         }
+
+       Enemy enemy = other.GetComponent<Enemy>();
+       if (enemy != null)
+       {
+           //gameObject._spriteRenderer.color = new Color(1f,1f,1f,alphaLevel);
+       }
+
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+
+        if (health <= 0 )
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        //Instantiate(deathEffect,transform.position,Quaternion.identity);
+        Destroy(gameObject);
     }
 
     // private void Winner()
