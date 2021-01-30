@@ -22,6 +22,12 @@ public class CollectedPartsManager : MonoBehaviour
     public void ChangeCollectedParts()
     {
         collectedParts += 1;
-        text.text = collectedParts.ToString() + " / 5";
+        if (collectedParts < 5)
+        {
+            text.text = collectedParts.ToString() + " / 5";
+        } else
+        {
+            text.text = "Ya puedes buscar la nave";
+        }
     }
 }
