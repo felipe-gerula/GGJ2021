@@ -6,6 +6,8 @@ TagManager:
   tags:
   - PickableItem
   - Enemy
+  - PlayerLanternLight
+  - LanternBattery
   layers:
   - Default
   - TransparentFX

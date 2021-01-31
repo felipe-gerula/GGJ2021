@@ -33,6 +33,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnimatedPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 8315475094092544837, guid: e74f6553e20db7a4486e65289015cb82,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 774b473e21cf62f48b33f0e51814f5ad, type: 2}
     - target: {fileID: 8315475094092544838, guid: e74f6553e20db7a4486e65289015cb82,
         type: 3}
       propertyPath: m_RootOrder
@@ -66,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 8315475094092544838, guid: e74f6553e20db7a4486e65289015cb82,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8315475094092544838, guid: e74f6553e20db7a4486e65289015cb82,
         type: 3}
