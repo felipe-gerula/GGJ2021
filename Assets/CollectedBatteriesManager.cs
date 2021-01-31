@@ -21,7 +21,17 @@ public class CollectedBatteriesManager : MonoBehaviour
     {
         collectedBatteries++;
         playerLantern = GameObject.FindWithTag("PlayerLanternLight").GetComponent<Light>();
-        playerLantern.range += .5f;
-        playerLantern.intensity += 1;
+        if (collectedBatteries == 1)
+        {
+            playerLantern.range = 12;
+            playerLantern.intensity = 10;
+
+        }
+        else
+        {
+            playerLantern.range += .5f;
+            playerLantern.intensity += 1;
+
+        }
     }
 }
