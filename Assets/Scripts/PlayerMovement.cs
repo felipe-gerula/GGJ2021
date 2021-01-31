@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     public Canvas canvas;
     public RawImage healthbar;
     public Texture newTexture;
+    public GameObject winScreen;
+    public GameObject gameOverScreen;
 
     protected void Awake() {
         //_spriteRenderer = GetComponent<SpriteRenderer>();
@@ -66,6 +68,14 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
         }
 
+        if (other.gameObject.CompareTag("EscapeShip") && collectedParts==5)
+        {
+            Destroy(other.gameObject);
+            canvas.gameObject.SetActive(false);
+            winScreen.gameObject.SetActive(true);
+            Die();
+        }
+
         Enemy enemy = other.GetComponent<Enemy>();
        if (enemy != null)
        {
@@ -99,13 +109,12 @@ public class PlayerMovement : MonoBehaviour
             case 0:
                 newTexture = (Texture)AssetDatabase.LoadAssetAtPath("Assets/Animations/HealthBar/health-bar0.5.png", typeof(Texture));
                 healthbar.texture = newTexture;
+                canvas.gameObject.SetActive(false);
+                gameOverScreen.gameObject.SetActive(true);
+                Die();
                 break;
         }
 
-        if (health <= 0 )
-        {
-            Die();
-        }
     }
 
     void Die()
