@@ -9,6 +9,8 @@ public class CollectedPartsManager : MonoBehaviour
     public static CollectedPartsManager instance;
     public TextMeshProUGUI text;
     int collectedParts;
+    Light shipBeacon;
+    EdgeCollider2D shipCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,10 @@ public class CollectedPartsManager : MonoBehaviour
         } else
         {
             text.text = "Ya puedes buscar la nave";
+            shipBeacon = GameObject.FindWithTag("ShipBeacon").GetComponent<Light>();
+            shipBeacon.color = Color.green; //Rojo: CC2924
+            shipCollider = GameObject.FindWithTag("EscapeShip").GetComponent<EdgeCollider2D>();
+            shipCollider.isTrigger = true;
         }
     }
 }
