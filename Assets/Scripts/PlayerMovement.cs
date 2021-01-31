@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,8 +18,9 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public float alphaLevel = 0f;
     //private SpriteRenderer _spriteRenderer;
-
-
+    public Canvas canvas;
+    public RawImage healthbar;
+    public Texture newTexture;
 
     protected void Awake() {
         //_spriteRenderer = GetComponent<SpriteRenderer>();
@@ -26,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -75,6 +77,30 @@ public class PlayerMovement : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+
+        switch (health)
+        {
+            case 4:
+                newTexture = (Texture)AssetDatabase.LoadAssetAtPath("Assets/Animations/HealthBar/health-bar4.5.png", typeof(Texture));
+                healthbar.texture = newTexture;
+                break;
+            case 3:
+                newTexture = (Texture)AssetDatabase.LoadAssetAtPath("Assets/Animations/HealthBar/health-bar3.5.png", typeof(Texture));
+                healthbar.texture = newTexture;
+                break;
+            case 2:
+                newTexture = (Texture)AssetDatabase.LoadAssetAtPath("Assets/Animations/HealthBar/health-bar2.5.png", typeof(Texture));
+                healthbar.texture = newTexture;
+                break;
+            case 1:
+                newTexture = (Texture)AssetDatabase.LoadAssetAtPath("Assets/Animations/HealthBar/health-bar1.5.png", typeof(Texture));
+                healthbar.texture = newTexture;
+                break;
+            case 0:
+                newTexture = (Texture)AssetDatabase.LoadAssetAtPath("Assets/Animations/HealthBar/health-bar0.5.png", typeof(Texture));
+                healthbar.texture = newTexture;
+                break;
+        }
 
         if (health <= 0 )
         {
