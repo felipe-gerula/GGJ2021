@@ -29,7 +29,8 @@ public class CollectedPartsManager : MonoBehaviour
             text.text = collectedParts.ToString() + " / 5";
         } else
         {
-            text.text = "Ya puedes buscar la nave";
+            text.text = "You can now search for the ship";
+            text.color = Color.green;
             shipBeacon = GameObject.FindWithTag("ShipBeacon").GetComponent<Light>();
             shipBeacon.color = Color.green; //Rojo: CC2924
             shipCollider = GameObject.FindWithTag("EscapeShip").GetComponent<EdgeCollider2D>();

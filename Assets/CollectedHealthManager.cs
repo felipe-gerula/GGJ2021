@@ -11,6 +11,10 @@ public class CollectedHealthManager : MonoBehaviour
     public GameObject player;
     public RawImage healthbar;
     public Texture newTexture;
+    Texture healthBar5;
+    Texture healthBar4;
+    Texture healthBar3;
+    Texture healthBar2;
 
     // Start is called before the first frame update
     void Start()
@@ -28,22 +32,26 @@ public class CollectedHealthManager : MonoBehaviour
         {
             playerHealth++;
             GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().incrementHealth();
+            healthBar5 = Resources.Load<Texture2D>("HealthBar/health-bar5.5");
+            healthBar4 = Resources.Load<Texture2D>("HealthBar/health-bar4.5");
+            healthBar3 = Resources.Load<Texture2D>("HealthBar/health-bar3.5");
+            healthBar2 = Resources.Load<Texture2D>("HealthBar/health-bar2.5");
             switch (playerHealth)
             {
                 case 5:
-                    newTexture = (Texture)AssetDatabase.LoadAssetAtPath("Assets/Animations/HealthBar/health-bar5.5.png", typeof(Texture));
+                    newTexture = healthBar5;
                     healthbar.texture = newTexture;
                     break;
                 case 4:
-                    newTexture = (Texture)AssetDatabase.LoadAssetAtPath("Assets/Animations/HealthBar/health-bar4.5.png", typeof(Texture));
+                    newTexture = healthBar4;
                     healthbar.texture = newTexture;
                     break;
                 case 3:
-                    newTexture = (Texture)AssetDatabase.LoadAssetAtPath("Assets/Animations/HealthBar/health-bar3.5.png", typeof(Texture));
+                    newTexture = healthBar3;
                     healthbar.texture = newTexture;
                     break;
                 case 2:
-                    newTexture = (Texture)AssetDatabase.LoadAssetAtPath("Assets/Animations/HealthBar/health-bar2.5.png", typeof(Texture));
+                    newTexture = healthBar2;
                     healthbar.texture = newTexture;
                     break;
             }
