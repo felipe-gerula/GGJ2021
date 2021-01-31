@@ -59,7 +59,12 @@ public class PlayerMovement : MonoBehaviour
             collectedParts++;
         }
 
-       Enemy enemy = other.GetComponent<Enemy>();
+        if (other.gameObject.CompareTag("LanternBattery"))
+        {
+            Destroy(other.gameObject);
+        }
+
+        Enemy enemy = other.GetComponent<Enemy>();
        if (enemy != null)
        {
            //gameObject._spriteRenderer.color = new Color(1f,1f,1f,alphaLevel);

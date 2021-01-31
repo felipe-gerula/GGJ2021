@@ -11,15 +11,19 @@ public class Enemy : MonoBehaviour
     private Vector2 movement;
     public float moveSpeed = 5f;
     public bool attack = false;
+    public float attackAnimationTrigger = 0;
+    public Animator anim;
 
     private void Start() {
         rb = this.GetComponent<Rigidbody2D>(); 
     }
 
     private void Update() {
+        float offset = 90f;
         Vector3 direction = player.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
+        transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
         direction.Normalize();
         movement = direction;
     }
@@ -53,13 +57,14 @@ public class Enemy : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) 
     {
        PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
-       if (playerMovement != null)
-       {
-           playerMovement.TakeDamage(1);
-       } 
-       if (other.gameObject.CompareTag("Player"))
+        if (playerMovement != null)
         {
-            transform.position = new Vector3(player.position.x,player.position.y - 4f,player.position.z);
+            playerMovement.TakeDamage(1);
+            //anim.SetFloat("attackAnimationTrigger", 1);
+        }
+        if (other.gameObject.CompareTag("Player"))
+        {
+            transform.position = new Vector3(player.position.x,player.position.y - 4f,9);
         }
     }
 
