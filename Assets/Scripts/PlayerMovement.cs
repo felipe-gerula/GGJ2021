@@ -23,9 +23,19 @@ public class PlayerMovement : MonoBehaviour
     public Texture newTexture;
     public GameObject winScreen;
     public GameObject gameOverScreen;
+    Texture healthBar4;
+    Texture healthBar3;
+    Texture healthBar2;
+    Texture healthBar1;
+    Texture healthBar0;
 
     protected void Awake() {
         //_spriteRenderer = GetComponent<SpriteRenderer>();
+        healthBar4 = Resources.Load<Texture2D>("HealthBar/health-bar4.5");
+        healthBar3 = Resources.Load<Texture2D>("HealthBar/health-bar3.5");
+        healthBar2 = Resources.Load<Texture2D>("HealthBar/health-bar2.5");
+        healthBar1 = Resources.Load<Texture2D>("HealthBar/health-bar1.5");
+        healthBar0 = Resources.Load<Texture2D>("HealthBar/health-bar0.5");
     }
 
     // Start is called before the first frame update
@@ -84,6 +94,11 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public void incrementHealth()
+    {
+        health++;
+    }
+
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -91,23 +106,23 @@ public class PlayerMovement : MonoBehaviour
         switch (health)
         {
             case 4:
-                newTexture = (Texture)AssetDatabase.LoadAssetAtPath("Assets/Animations/HealthBar/health-bar4.5.png", typeof(Texture));
+                newTexture = healthBar4;
                 healthbar.texture = newTexture;
                 break;
             case 3:
-                newTexture = (Texture)AssetDatabase.LoadAssetAtPath("Assets/Animations/HealthBar/health-bar3.5.png", typeof(Texture));
+                newTexture = healthBar3;
                 healthbar.texture = newTexture;
                 break;
             case 2:
-                newTexture = (Texture)AssetDatabase.LoadAssetAtPath("Assets/Animations/HealthBar/health-bar2.5.png", typeof(Texture));
+                newTexture = healthBar2;
                 healthbar.texture = newTexture;
                 break;
             case 1:
-                newTexture = (Texture)AssetDatabase.LoadAssetAtPath("Assets/Animations/HealthBar/health-bar1.5.png", typeof(Texture));
+                newTexture = healthBar1;
                 healthbar.texture = newTexture;
                 break;
             case 0:
-                newTexture = (Texture)AssetDatabase.LoadAssetAtPath("Assets/Animations/HealthBar/health-bar0.5.png", typeof(Texture));
+                newTexture = healthBar0;
                 healthbar.texture = newTexture;
                 canvas.gameObject.SetActive(false);
                 gameOverScreen.gameObject.SetActive(true);

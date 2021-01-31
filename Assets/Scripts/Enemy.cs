@@ -19,13 +19,18 @@ public class Enemy : MonoBehaviour
     }
 
     private void Update() {
-        float offset = 90f;
-        Vector3 direction = player.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
-        transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
-        direction.Normalize();
-        movement = direction;
+        if (Vector2.Distance(transform.position, player.position) < 10)
+        {
+            float offset = 90f;
+            Vector3 direction = player.position - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            rb.rotation = angle;
+            transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
+            transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+        }
+        
+        //direction.Normalize();
+        //movement = direction;
     }
 
     private void FixedUpdate()
@@ -64,7 +69,7 @@ public class Enemy : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Player"))
         {
-            transform.position = new Vector3(player.position.x,player.position.y - 4f,9);
+            transform.position = new Vector3(player.position.x,player.position.y - 4f,1);
         }
     }
 
